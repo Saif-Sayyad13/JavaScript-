@@ -421,8 +421,6 @@
 // catch(()=>{})
 // finally(()=>{})
 // new Promise(()=>{})
-
-
 // console.log([10, 20, 30, 40].map((val, i)=>val*i));
 
 // let arr = [10, 20, 30, 40];
@@ -439,24 +437,266 @@
 // });
 // console.log(newArr);
 
-
-
-
-
-
-
-
-
 // let arr = [10, 20, 30, 40];
 // let customMap = (cb) => {
 //   let temp = [];
 //   for (let i = 0; i < arr.length; i++) {
-//     let val = cb(arr[i], i);
-//     temp.push(val); //  [0, 20, 60, 120]
+//     let rv = cb(arr[i], i, arr);
+//     temp.push(rv); // [20, 40, 60, 80]
 //   }
 //   return temp
 // };
-// let newArr = customMap((ele, ind) => {
-//   return ele * ind;
+// let newArr = customMap((val, ind, arr) => {
+//   console.log( arr);
+//   return val * 2;
 // });
 // console.log(newArr);
+
+// arr.forEach((val, ind, arr) => {
+//   console.log(val, ind, arr);
+// });
+
+// let arr = [10, 0, 30, 41];
+// let customFilter = (cb) => {
+//   let temp = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     let bool = cb(arr[i], i, arr);
+//     if(bool){
+//       temp.push(arr[i])
+//     }
+//   }
+//   return temp
+// };
+// let filteredArr = customFilter((val, ind) => {
+//   return "hello";
+// });
+// console.log(filteredArr);
+
+// let newArr = arr.filter((val, ind, arr)=>{return 0 })
+// console.log(newArr); // []
+
+// let arr = [10, 20, 30, 41];
+// let customReduce = (cb, initial) => {
+//   let acc;
+//   if (initial) {
+//     acc = initial;
+//     for (let i = 0; i < arr.length; i++) {
+//       acc = cb(acc, arr[i], i, arr);
+//     }
+//   } else {
+//     acc = arr[0];
+//     for (let i = 1; i < arr.length; i++) {
+//       acc = cb(acc, arr[i], i, arr);
+//     }
+//   }
+//   return acc;
+// };
+// let singleVal = customReduce((acc, val, ind, arr) => {
+//   return (acc += val);
+// });
+// console.log(singleVal);
+
+// let singleVal = arr.reduce((acc, val, ind, arr) => { return acc+=val;}, 100 );
+// console.log(singleVal);
+
+// • Task 1: Print the Square of Each Number
+// 	• Given: const nums = [2, 3, 4, 5];
+// 	• Task: Use .forEach() to log each number multiplied by itself (num * num) to the console.
+// 	• Expected Console Output: 4, 9, 16, 25
+// const nums = [2, 3, 4, 5];
+// nums.forEach((val, ind, arr) => {
+//   console.log(val * val);
+// });
+
+// I want task based on Javascript map filter reduce forEach, some, every, sort methods where I just know the basics of JavaScript like basic primitive and non primitive datatypes, functions. I don't know the objects in detail, I just know the push pop shift and unshift and splice method of the array. I don't have knowledge of any string related things, async await, dom, event handling, timers etc.
+
+// let arr=[10,20,30,40]
+// arr.forEach((ele, i) => {
+//   console.log(ele*i);
+// });
+
+// Goal: Find the sum of all numbers in an array.
+// • Input: [150, 400, 50, 200, 100]
+// • Expected Output: 900
+// • Hint: Start your initialValue at 0 and add currentValue to the accumulator on each step.
+// let arr = [150, 400, 50, 200, 100];
+// let sum = arr.reduce((acc, val) => {
+//   let newAcc = acc + val;
+//   return newAcc;
+// }, 0);
+// console.log(sum);
+
+// 1. Function Hoisting: Works completely
+// sayHello(); // Output: "Hello!"
+
+// function sayHello() {
+//   console.log("Hello!");
+// }
+
+// // 2. Variable Hoisting (var): Declaration is hoisted, value is not
+// console.log(myName); // Output: undefined (No error!)
+// var myName = "Rahul";
+// console.log(myName); // Output: "Rahul"
+
+// Task 2: Find the Highest Score
+// Goal: Find the largest number in an array without using Math.max().
+// • Input: [45, 88, 12, 99, 64, 31]
+// • Expected Output: 99
+// • Hint: Start with the first number as your initial value (or 0), and use an if statement to return whichever is bigger: accumulator or currentValue.
+
+//   max,val
+// let scores = [45, 88, 12, 99, 64, 31]
+// let biggestNo = scores.reduce((max , val)=>{
+//     console.log(max); // 45, 88, 88 , 99 , 99, 99
+//     if(val > max){
+//         return val
+//     }
+//     return max
+// })
+// console.log(biggestNo);
+
+// Task 3: Filter Even Numbers (Using push)
+// Goal: Create a new array containing only the even numbers from the original array.
+// • Input: [11, 24, 37, 42, 50, 63, 88]
+// • Expected Output: [24, 42, 50, 88]
+// • Hint: Set your initialValue to an empty array []. If currentValue % 2 === 0, use accumulator.push(currentValue) and then return accumulator.
+
+// let nums = [11, 24, 37, 42, 50, 63, 88];
+// let evenNo = nums.reduce((arr, currentValue) => {
+//   if (currentValue % 2 == 0) {
+//     arr.push(currentValue);
+//   }
+//   return arr
+// }, []);
+// console.log(evenNo);
+
+// let nums = [-10, 5, 0, 22, -3, 18, 9]
+// let count = nums.reduce((c,n)=>{
+//     if(n > 0 ){
+//         c++
+//     }
+//     return c
+// }, 0)
+// console.log(count);
+
+// let arr = [10, 20, 30, 40, 50]
+// let revArr = arr.reduce((newArr , ele)=>{
+//     newArr.unshift(ele)
+//     return newArr
+// }, [])
+// console.log(revArr);
+
+// let arr = [40, 30, 10, 50, 20, 100, 1000]
+// console.log(arr.sort((a,b)=>b-a));
+
+// • Task A: Given const scores = [12, 45, 7, 89, 23];, print each score to the console along with its index (e.g., Index 0: 12).
+// • Task B: Create an empty array const doubled = [];. Use forEach on [2, 4, 6, 8] to push the doubled values into doubled.
+
+// const scores = [12, 45, 7, 89, 23];
+
+// I want task based on Javascript map filter reduce forEach, some, every, sort methods where I just know the basics of JavaScript like basic primitive and non primitive datatypes, functions. I don't know the objects in detail, I just know the push pop shift and unshift and splice method of the array. I don't have knowledge of any string related things, async await, dom, event handling, timers etc. include tasks based on method chaining
+// 1. Discounted Total:
+// Given const cart = [120, 450, 800, 50, 300];
+// 	• Filter out items costing less than 200.
+// 	• Map the remaining items to apply a 10% discount (price * 0.9).
+// 	• Reduce them to find the final bill total.
+// const cart = [120, 450, 800, 50, 300];
+// console.log(cart.filter((price)=>price > 200).map((p)=>p*0.9).reduce((acc, val)=>acc+=val));
+
+// let arr = [-10, -2, 0, 2, 10]
+
+// let x = arr.map((el,index)=> {
+//     return el*index
+// }).filter((el)=>el%2===0).find((el)=>el>0)
+
+// console.log(x)
+
+// let arr = [10, 20, 30, 40, 10, 40];
+// let arr = [100, [10, 20], [[200], 300]];
+// console.log(arr.flat(2));
+// let temp = [];
+// let flatten = (arr) => {
+//   for (let i = 0; i < arr.length; i++) {
+//     if(Array.isArray(arr[i])){
+//         flatten(arr[i])
+//     }else{
+//         temp.push(arr[i])
+//     }
+//   }
+// };
+// flatten(arr);
+// console.log(temp);
+// console.log(arr.at(0));
+// console.log(arr[0]);
+// console.log(arr.concat([100, 200]));
+// console.log(arr.indexOf(10)); // 0
+// console.log(arr.lastIndexOf(10)); // 4
+// console.log(arr.flat(1));
+// find, findLast , flat
+
+// let arr = [10, 20, 30, 40, 50, 20, 20, 40, 20, 40];
+// console.log(arr.indexOf(20));
+// if(arr.length%2!=0){
+//   console.log(arr.at(Math.floor(arr.length/2)));
+// }
+
+// 0   1   2   3   4   5   6   7   8   9
+// let arr = [10, 20, 30, 40, 50, 20, 20, 40, 20, 40];
+// console.log(arr.includes(10));
+// console.log(arr.reverse());
+// console.log(arr.slice());
+// ! default parameters
+// let intro = (name, country = "India") => {
+//   console.log(name, country);
+// };
+// intro("Aman", "UK");
+
+//! how to reverse a string
+let str = "Ramayana";
+// let newStr = "";
+// for (let i = 0; i < str.length; i++) {
+//   if (str[i] !== "a") {
+//     newStr += str[i];
+//   }
+// }
+// console.log(newStr);
+// let newStr = ""
+// for (let i = str.length-1; i >= 0 ; i--) {
+//   newStr+=str[i]
+// }
+// console.log(newStr);
+//! OR
+// let arr = str.split("");
+// console.log(arr); //['R', 'a', 'm', 'a', 'y', 'a', 'n', 'a']
+// let newArr = arr.reverse();
+// console.log(newArr); // ['a', 'n', 'a', 'y', 'a', 'm', 'a', 'R']
+// let newStr = newArr.join("");
+// console.log(newStr); // anayamaR
+//! or
+// console.log(str.split("").reverse().join("")); // anayamaR
+
+// let str = "8757"
+// console.log(str[0]);
+// console.log(str.at(0));
+// console.log(str.charAt(0));
+// console.log(str.charCodeAt(1));
+// console.log(str.concat());
+// console.log(str + "");
+// console.log(str.endsWith("ana"));
+// console.log(str.includes("maya"));
+// console.log(str.indexOf("R"));
+// console.log(str.lastIndexOf("a"));
+// console.log(str.padEnd(10, "*"));
+// console.log(str.padStart(10, "*"));
+// console.log(str.repeat(2));
+// console.log(str.startsWith("R"));
+// console.log(str.toUpperCase());
+// console.log(str.toLowerCase());
+// console.log(str.trim());
+// console.log(str.trimStart());
+// console.log(str.trimEnd());
+
+
+
+
+// I want 50 descriptive task with valid inputs with it based on Javascript strings and its methods like at(), charAt(), charCodeAt(), concat(), endsWith(), includes(), indexOf(), lastIndexOf(), padEnd(), padStart(), repeat(), startsWith(), toUpperCase(), toLowerCase(), trim(), trimStart(), trimEnd()  where I just know the basics of JavaScript like basic primitive and non primitive datatypes, functions and completely array. I don't know the objects in detail, I just know the push pop shift and unshift and splice method of the array. I don't have knowledge of any string related things, async await, dom, event handling, timers etc. include tasks based on method chaining
