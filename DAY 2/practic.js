@@ -629,7 +629,8 @@
 // // ["★ URGENT", "task 1", "task 2"]
 
 // 48. Replace Middle Element with Padded Version
-// 	• Task: Write a function padMiddleCode(codes) that uses splice() to replace the element at index 1 with its padStart(5, "0") version.
+// 	• Task: Write a function padMiddleCode(codes) that uses splice() 
+// to replace the element at index 1 with its padStart(5, "0") version.
 // 	• Input: ["101", "7", "305"]
 // function padMiddleCode(codes) {
 //   let padded = codes[1].padStart(5, "0");
@@ -639,7 +640,8 @@
 // console.log(padMiddleCode(["101", "7", "305"])); // ["101", "00007", "305"]
 
 // 49. Build Acronym Array from Three Words
-// 	• Task: Write a function getInitialsArray(words) that takes an array of 3 words, extracts the first character of each using charAt(0).toUpperCase(), pushes them into a new array, and returns it.
+// 	• Task: Write a function getInitialsArray(words) that takes an array of 3 words,
+//  extracts the first character of each using charAt(0).toUpperCase(), pushes them into a new array, and returns it.
 // 	• Input: ["world", "wide", "web"]
 // function getInitialsArray(words) {
 //   let initials = [];
@@ -651,7 +653,10 @@
 // console.log(getInitialsArray(["world", "wide", "web"])); // ["W", "W", "W"]
 
 // 50. Ultimate Combo: Clean, Validate, and Store
-// 	• Task: Write a function registerCode(existingCodes, rawInput) that trims rawInput, converts it to uppercase, pads it to 6 characters with "X" at the end (padEnd), checks if it starts with "ID", and if it does, adds it to the start of existingCodes using unshift(). Return existingCodes.
+// 	• Task: Write a function registerCode(existingCodes, rawInput) that trims rawInput, 
+// converts it to uppercase, pads it to 6 characters with "X" at the end (padEnd), 
+// checks if it starts with "ID", and if it does, adds it to the start of existingCodes
+//  using unshift(). Return existingCodes.
 // 	• Input: ["ID99XX"], "  id42  "
 
 // function registerCode(existingCodes, rawInput) {
@@ -671,3 +676,9 @@
 
 
 
+
+
+
+
+
+("  ananya  ", "  verma  "); // "ANANYA VERMA"

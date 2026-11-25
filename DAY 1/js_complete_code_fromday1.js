@@ -699,4 +699,44 @@ let str = "Ramayana";
 
 
 
-// I want 50 descriptive task with valid inputs with it based on Javascript strings and its methods like at(), charAt(), charCodeAt(), concat(), endsWith(), includes(), indexOf(), lastIndexOf(), padEnd(), padStart(), repeat(), startsWith(), toUpperCase(), toLowerCase(), trim(), trimStart(), trimEnd()  where I just know the basics of JavaScript like basic primitive and non primitive datatypes, functions and completely array. I don't know the objects in detail, I just know the push pop shift and unshift and splice method of the array. I don't have knowledge of any string related things, async await, dom, event handling, timers etc. include tasks based on method chaining
+// I want 50 descriptive task with valid inputs with it based on 
+// Javascript strings and its methods like at(), charAt(), charCodeAt(),
+//  concat(), endsWith(), includes(), indexOf(), lastIndexOf(), padEnd(),
+//  padStart(), repeat(), startsWith(), toUpperCase(), toLowerCase(), trim(),
+//  trimStart(), trimEnd()  where I just know the basics of JavaScript like basic 
+// primitive and non primitive datatypes, functions and completely array. I don't know 
+// the objects in detail, I just know the push pop shift and unshift and splice method 
+// of the array. I don't have knowledge of any string related things, async await, dom, 
+// event handling, timers etc. include tasks based on method chaining
+
+// 1. Create an Object. Define a book object with properties title, author, and year, then log it to the console.
+// 2. Dot Notation Access. Log the title of the book object using dot notation (book.title).
+// 3. Bracket Notation Access. Log the author using bracket notation (book["author"]).
+// 4. Add a Property. Add a new property genre (e.g., "Fiction") to the book object.
+// 5. Update a Property. Change the year property to a different year.
+// 6. Delete a Property. Remove the genre property using the delete keyword.
+// 7. Check Property Existence. Check if the property publisher exists in book using the in operator or Object.hasOwn().
+
+// Part 2: Methods, Nesting & Iteration (Tasks 8
+
+let a={
+    name:'aman',
+    age:'22',
+    city:'pune'
+}
+
+console.log(a.city)
+// 2. Create an Object. Define a book object with properties title, author, and year,
+//  then log it to the console.
+let book={
+    title:'I Dont Know',
+    author:'Pata Nahi',
+    year:'2026'
+}
+console.log(book)
+// 3. Dot Notation Access. Log the title of the book object using dot notation (book.title).
+console.log(book.title)
+
+// 4. Bracket Notation Access. Log the author using bracket notation (book["author"]).
+
+// 5. Add a Property. Add a new property genre (e.g., "Fiction") to the book object.
