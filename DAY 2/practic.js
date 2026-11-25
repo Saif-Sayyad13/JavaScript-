@@ -669,16 +669,374 @@
 // console.log(registerCode(["ID99XX"], "  id42  "));
 
 
+// #objects
+
+// 1. Create an Object: Define a car object with properties brand, model, and year.
+// 2. Dot Notation: Log the brand of the car using dot notation.
+// 3. Bracket Notation: Access and log the model using bracket notation (car["model"]).
+// 4. Add a Property: Add a color property to car after it has been created.
+// 5. Modify a Property: Update the year property to 2026.
+// 6. Delete a Property: Remove the color property using the delete operator.
+// 7. Check Key Existence: Verify if mileage exists in car using Object.hasOwn(car, "mileage").
+// 8. Object Method: Add a start() method to car that logs "Engine started".
+// 9. Using this: Add a getInfo() method returning "Brand Model (Year)" using this.
+// 10. Nested Objects: Create a student object with a nested grades object (math, science) and log math.
+
+// Part 2: Iteration, Built-in Methods & Destructuring (Tasks 11–20)
+
+// 11. Loop Keys (for...in): Iterate over car and print each key name.
+// 12. Loop Keys & Values: Use for...in to log both keys and values in "key: value" format.
+// 13. Get All Keys: Use Object.keys() to store all keys of student in an array.
+// 14. Get All Values: Use Object.values() to calculate the sum of all numbers inside student.grades.
+// 15. Get Entries: Use Object.entries() to convert car into an array of [key, value] pairs.
+// 16. Entries to Object: Convert an array of pairs [["a", 1], ["b", 2]] back into an object using Object.fromEntries().
+// 17. Basic Destructuring: Extract brand and year from car into variables in one line.
+// 18. Destructuring with Alias: Extract model from car into a variable named carModel.
+// 19. Default Values in Destructuring: Destructure fuelType = "Petrol" from car so it defaults when missing.
+// 20. Optional Chaining (?.): Safely access student.address?.city without throwing an error if address is undefined.
+
+// Part 3: Advanced Patterns & Real-World Logic (Tasks 21–30)
+
+// 21. Shallow Clone (...): Create a copy of car using the spread operator ({ ...car }).
+// 22. Merge Objects (...): Merge defaultSettings and userSettings so user settings overwrite defaults.
+// 23. Rest in Destructuring (...): Extract brand from car and collect the remaining properties into a rest object.
+// 24. Dynamic Keys: Write a function setProp(obj, key, val) that returns a new object with the dynamic key added.
+// 25. Filter Array of Objects: Given an array of users ({ name, age }), return only users aged 18 or older.
+// 26. Find in Array of Objects: Use .find() to locate the user object where name === "Aarav".
+// 27. Sort Array of Objects: Sort an array of items ({ name, price }) from lowest to highest price.
+// 28. Count Occurrences: Given ["apple", "banana", "apple"], build a frequency object { apple: 2, banana: 1 }.
+// 29. Freeze vs. Seal: Apply Object.seal() to an object, modify an existing property, and test adding a new one.
+// 30. Deep Clone: Create a true deep copy of a nested object using structuredClone().
+
+// // Q1. Create an Object: Define a car object with properties brand, model, and year.
+// let car = {
+//   brand: "Tata",
+//   model: "Nexon",
+//   year: 2024
+// };
+// console.log("Q1:", car);
+
+// // Q2. Dot Notation: Log the brand of the car using dot notation.
+// console.log("Q2:", car.brand);
+
+// // Q3. Bracket Notation: Access and log the model using bracket notation.
+// console.log("Q3:", car["model"]);
+
+// // Q4. Add a Property: Add a color property to car after it has been created.
+// car.color = "Blue";
+// console.log("Q4:", car);
+
+// // Q5. Modify a Property: Update the year property to 2026.
+// car.year = 2026;
+// console.log("Q5:", car.year);
+
+// // Q6. Delete a Property: Remove the color property using the delete operator.
+// delete car.color;
+// console.log("Q6:", car);
+
+// // Q7. Check Key Existence: Verify if mileage exists in car using Object.hasOwn().
+// console.log("Q7:", Object.hasOwn(car, "mileage"));
+
+// // Q8. Object Method: Add a start() method to car that logs "Engine started".
+// car.start = function () {
+//   console.log("Q8: Engine started");
+// };
+// car.start();
+
+// // Q9. Using `this`: Add a getInfo() method returning "Brand Model (Year)" using this.
+// car.getInfo = function () {
+//   return `${this.brand} ${this.model} (${this.year})`;
+// };
+// console.log("Q9:", car.getInfo());
+
+// // Q10. Nested Objects: Create a student object with a nested grades object (math, science) and log math.
+// let student = {
+//   name: "Riya",
+//   grades: {
+//     math: 92,
+//     science: 88
+//   }
+// };
+// console.log("Q10:", student.grades.math);
+
+
+// // Q11. Loop Keys (for...in): Iterate over car and print each key name.
+// for (let key in car) {
+//   console.log("Q11 Key:", key);
+// }
+
+// // Q12. Loop Keys & Values: Use for...in to log both keys and values in "key: value" format.
+// for (let key in car) {
+//   console.log(`Q12: ${key}: ${car[key]}`);
+// }
+
+// // Q13. Get All Keys: Use Object.keys() to store all keys of student in an array.
+// let studentKeys = Object.keys(student);
+// console.log("Q13:", studentKeys);
+
+// // Q14. Get All Values: Use Object.values() to calculate the sum of all numbers inside student.grades.
+// let gradeValues = Object.values(student.grades);
+// let totalMarks = gradeValues.reduce((sum, val) => sum + val, 0);
+// console.log("Q14:", totalMarks);
+
+// // Q15. Get Entries: Use Object.entries() to convert car into an array of [key, value] pairs.
+// let carEntries = Object.entries(car);
+// console.log("Q15:", carEntries);
+
+// // Q16. Entries to Object: Convert an array of pairs [["a", 1], ["b", 2]] back into an object using Object.fromEntries().
+// let pairs = [["a", 1], ["b", 2]];
+// let reconstructedObj = Object.fromEntries(pairs);
+// console.log("Q16:", reconstructedObj);
+
+// // Q17. Basic Destructuring: Extract brand and year from car into variables in one line.
+// let { brand, year } = car;
+// console.log("Q17:", brand, year);
+
+// // Q18. Destructuring with Alias: Extract model from car into a variable named carModel.
+// let { model: carModel } = car;
+// console.log("Q18:", carModel);
+
+// // Q19. Default Values in Destructuring: Destructure fuelType = "Petrol" from car so it defaults when missing.
+// let { fuelType = "Petrol" } = car;
+// console.log("Q19:", fuelType);
+
+// // Q20. Optional Chaining (?.): Safely access student.address?.city without throwing an error if address is undefined.
+// console.log("Q20:", student.address?.city);
+
+
+
+// // Q21. Shallow Clone (...): Create a copy of car using the spread operator ({ ...car }).
+// let carCopy = { ...car };
+// console.log("Q21:", carCopy);
+
+// // Q22. Merge Objects (...): Merge defaultSettings and userSettings so user settings overwrite defaults.
+// let defaultSettings = { theme: "light", notifications: true };
+// let userSettings = { theme: "dark" };
+// let finalSettings = { ...defaultSettings, ...userSettings };
+// console.log("Q22:", finalSettings);
+
+// // Q23. Rest in Destructuring (...): Extract brand from car and collect the remaining properties into a restCarProps object.
+// let { brand: mainBrand, ...restCarProps } = car;
+// console.log("Q23:", restCarProps);
+
+// // Q24. Dynamic Keys: Write a function setProp(obj, key, val) that returns a new object with the dynamic key added.
+// function setProp(obj, key, val) {
+//   return { ...obj, [key]: val };
+// }
+// console.log("Q24:", setProp({ a: 1 }, "b", 2));
+
+// // Q25. Filter Array of Objects: Given an array of users ({ name, age }), return only users aged 18 or older.
+// let users = [
+//   { name: "Aarav", age: 24 },
+//   { name: "Meera", age: 16 },
+//   { name: "Kabir", age: 19 }
+// ];
+// let adults = users.filter(user => user.age >= 18);
+// console.log("Q25:", adults);
+
+// // Q26. Find in Array of Objects: Use .find() to locate the user object where name === "Aarav".
+// let aarav = users.find(user => user.name === "Aarav");
+// console.log("Q26:", aarav);
+
+// // Q27. Sort Array of Objects: Sort an array of items ({ name, price }) from lowest to highest price.
+// let items = [
+//   { name: "Mouse", price: 800 },
+//   { name: "Keyboard", price: 1500 },
+//   { name: "Cable", price: 300 }
+// ];
+// let sortedItems = [...items].sort((a, b) => a.price - b.price);
+// console.log("Q27:", sortedItems);
+
+// // Q28. Count Occurrences: Given ["apple", "banana", "apple"], build a frequency object { apple: 2, banana: 1 }.
+// let fruits = ["apple", "banana", "apple"];
+// let countMap = fruits.reduce((acc, fruit) => {
+//   acc[fruit] = (acc[fruit] || 0) + 1;
+//   return acc;
+// }, {});
+// console.log("Q28:", countMap);
+
+// // Q29. Freeze vs. Seal: Apply Object.seal() to an object, modify an existing property, and test adding a new one.
+// let sealedObj = Object.seal({ status: "active" });
+// sealedObj.status = "inactive"; // Works
+// sealedObj.newProp = 123;       // Ignored (fails in strict mode)
+// console.log("Q29:", sealedObj);
+
+// // Q30. Deep Clone: Create a true deep copy of a nested object using structuredClone().
+// let nestedOriginal = { user: { name: "Ananya" } };
+// let deepCopy = structuredClone(nestedOriginal);
+// deepCopy.user.name = "Vikram";
+// console.log("Q30 Original:", nestedOriginal.user.name);
+// console.log("Q30 Copy:", deepCopy.user.name);
 
 
 
 
+// // Q1. Spread Arrays: Combine two arrays [1, 2] and [3, 4] into one new array using spread.
+// let arr1 =;
+// let arr2 =;
+// let combinedArr = [...arr1, ...arr2];
+// console.log("Q1:", combinedArr);
+
+// // Q2. Add Elements with Spread: Create a new array by adding 0 at the start and 5 at the end of.
+// let extendedArr = [0, ...combinedArr, 5];
+// console.log("Q2:", extendedArr);
+
+// // Q3. Spread String to Array: Convert the string "CODE" into an array of individual characters using spread.
+// let word = "CODE";
+// let letters = [...word];
+// console.log("Q3:", letters);
+
+// // Q4. Spread in Function Calls: Pass an array of numbers [10, 45, 22, 89, 5] into Math.max() using spread.
+// let scores =;
+// let highestScore = Math.max(...scores);
+// console.log("Q4:", highestScore);
+
+// // Q5. Clone & Override Object: Clone { name: "Rohan", role: "User" } and override role to "Admin" in one line.
+// let baseUser = { name: "Rohan", role: "User" };
+// let adminUser = { ...baseUser, role: "Admin" };
+// console.log("Q5:", adminUser);
+
+// // Q6. Rest Parameters in Function: Write a function sumAll(...nums) that accepts any number of arguments and returns their sum.
+// function sumAll(...nums) {
+//   return nums.reduce((total, n) => total + n, 0);
+// }
+// console.log("Q6:", sumAll(5, 10, 15, 20));
+
+// // Q7. Rest with Fixed Parameters: Write introduce(firstName, lastName, ...hobbies) and log the hobbies array.
+// function introduce(firstName, lastName, ...hobbies) {
+//   console.log("Q7:", `${firstName} ${lastName} loves:`, hobbies);
+// }
+// introduce("Neha", "Sharma", "Reading", "Coding", "Cycling");
+
+// // Q8. Conditional Property with Spread: Add { isVerified: true } to an object only if isLoggedIn is true.
+// let isLoggedIn = true;
+// let profile = { username: "dev_raj", ...(isLoggedIn && { isVerified: true }) };
+// console.log("Q8:", profile);
+
+// // Q9. Remove Duplicates with Spread & Set: Remove duplicates from [1, 2, 2, 3, 4, 4, 5] using Set and spread.
+// let dupNums =;
+// let uniqueNums = [...new Set(dupNums)];
+// console.log("Q9:", uniqueNums);
+
+// // Q10. Merge Multiple Objects: Merge objA, objB, and objC into a single object where later keys overwrite earlier ones.
+// let objA = { a: 1, b: 2 };
+// let objB = { b: 20, c: 3 };
+// let objC = { c: 30, d: 4 };
+// let mergedAll = { ...objA, ...objB, ...objC };
+// console.log("Q10:", mergedAll);
+
+
+// // Q11. Array Destructuring with Rest: Extract the first element into `first` and the rest into `others` from.
+// let numbers =;
+// let [first, ...others] = numbers;
+// console.log("Q11:", first, others);
+
+// // Q12. Skip Elements in Array Destructuring: Extract the 1st and 3rd items from ["Red", "Green", "Blue"] into variables.
+// let colors = ["Red", "Green", "Blue"];
+// let [primary, , tertiary] = colors;
+// console.log("Q12:", primary, tertiary);
+
+// // Q13. Swap Variables: Swap the values of let x = "A" and let y = "B" using array destructuring.
+// let x = "A";
+// let y = "B";
+// [x, y] = [y, x];
+// console.log("Q13:", x, y);
+
+// // Q14. Object Destructuring with Rest: Extract `id` from { id: 101, title: "Laptop", price: 55000 } and collect the rest into `details`.
+// let product = { id: 101, title: "Laptop", price: 55000 };
+// let { id, ...details } = product;
+// console.log("Q14:", id, details);
+
+// // Q15. Rename & Default Value: Extract `name` as `empName` and set `department = "IT"` if missing from { name: "Karan" }.
+// let emp = { name: "Karan" };
+// let { name: empName, department = "IT" } = emp;
+// console.log("Q15:", empName, department);
+
+// // Q16. Nested Object Destructuring: Extract `city` and `pin` directly from { user: "Pooja", address: { city: "Pune", pin: 411001 } }.
+// let customer = { user: "Pooja", address: { city: "Pune", pin: 411001 } };
+// let { address: { city, pin } } = customer;
+// console.log("Q16:", city, pin);
+
+// // Q17. Destructuring Function Parameters: Write a function displayProduct({ title, price }) that logs "Laptop costs 55000".
+// function displayProduct({ title, price }) {
+//   console.log("Q17:", `${title} costs ${price}`);
+// }
+// displayProduct(product);
+
+// // Q18. Destructuring Inside Array of Objects: Extract the `name` of the second user from [{ name: "A" }, { name: "B" }].
+// let list = [{ name: "A" }, { name: "B" }];
+// let [, { name: secondUserName }] = list;
+// console.log("Q18:", secondUserName);
+
+// // Q19. Exclude a Property Immutably: Remove `password` from { user: "sid", password: "123", email: "s@mail.com" } using destructuring + rest.
+// let account = { user: "sid", password: "123", email: "s@mail.com" };
+// let { password, ...safeAccount } = account;
+// console.log("Q19:", safeAccount);
+
+// // Q20. Array Destructuring in Function Return: Write getStats() returning [min, max] and destructure both values.
+// function getStats() {
+//   return;
+// }
+// let [minVal, maxVal] = getStats();
+// console.log("Q20:", minVal, maxVal);
+
+
+
+// // Q21. Object to JSON String: Convert { course: "JS", level: "Pro" } into a JSON string using JSON.stringify().
+// let courseObj = { course: "JS", level: "Pro" };
+// let jsonString = JSON.stringify(courseObj);
+// console.log("Q21:", jsonString);
+
+// // Q22. JSON String to Object: Parse '{"city":"Mumbai","temp":32}' back into a JavaScript object using JSON.parse().
+// let rawJson = '{"city":"Mumbai","temp":32}';
+// let parsedWeather = JSON.parse(rawJson);
+// console.log("Q22:", parsedWeather.city, parsedWeather.temp);
+
+// // Q23. Pretty-Print JSON: Format { a: 1, b: [2, 3] } as a readable JSON string with 2-space indentation.
+// let dataObj = { a: 1, b: [2, 3] };
+// let prettyJson = JSON.stringify(dataObj, null, 2);
+// console.log("Q23:\n" + prettyJson);
+
+// // Q24. Filter Keys with JSON.stringify Replacer: Stringify { name: "Amit", age: 25, secret: "xyz" } keeping only "name" and "age".
+// let userRecord = { name: "Amit", age: 25, secret: "xyz" };
+// let filteredJson = JSON.stringify(userRecord, ["name", "age"]);
+// console.log("Q24:", filteredJson);
+
+// // Q25. Deep Clone via JSON: Deep-clone a nested object { team: { lead: "Sneha" } } using JSON.parse(JSON.stringify()).
+// let originalTeam = { team: { lead: "Sneha" } };
+// let clonedTeam = JSON.parse(JSON.stringify(originalTeam));
+// clonedTeam.team.lead = "Arjun";
+// console.log("Q25 Original:", originalTeam.team.lead, "| Clone:", clonedTeam.team.lead);
+
+// // Q26. Parse + Destructure in One Step: Parse '{"id":7,"status":"shipped"}' and destructure `status` immediately.
+// let orderJson = '{"id":7,"status":"shipped"}';
+// let { status } = JSON.parse(orderJson);
+// console.log("Q26:", status);
+
+// // Q27. Parse + Spread Update + Stringify: Parse '{"count":5}', increment count using spread, and convert back to JSON.
+// let stateJson = '{"count":5}';
+// let parsedState = JSON.parse(stateJson);
+// let updatedJson = JSON.stringify({ ...parsedState, count: parsedState.count + 1 });
+// console.log("Q27:", updatedJson);
+
+// // Q28. JSON.parse Reviver Function: Parse '{"price":"500"}' and convert the string price into a Number inside JSON.parse().
+// let itemJson = '{"price":"500"}';
+// let parsedItem = JSON.parse(itemJson, (key, value) => {
+//   return key === "price" ? Number(value) : value;
+// });
+// console.log("Q28:", parsedItem.price, typeof parsedItem.price);
+
+// // Q29. Parse JSON Array + Rest Destructuring: Parse '["Task1","Task2","Task3"]' and separate the first task from the rest.
+// let tasksJson = '["Task1","Task2","Task3"]';
+// let [urgentTask, ...remainingTasks] = JSON.parse(tasksJson);
+// console.log("Q29:", urgentTask, remainingTasks);
+
+// // Q30. Full Pipeline (Parse -> Destructure -> Spread -> Stringify): Remove `token` from a JSON user string and re-stringify.
+// let apiResponse = '{"id":9,"username":"coder99","token":"secret_abc","role":"member"}';
+// let { token, ...cleanUser } = JSON.parse(apiResponse);
+// let finalPayload = JSON.stringify({ ...cleanUser, active: true });
+// console.log("Q30:", finalPayload);
 
 
 
 
-
-
-
-
-("  ananya  ", "  verma  "); // "ANANYA VERMA"
